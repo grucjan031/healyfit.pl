@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealyFit - Dietetyk & Trener Personalny</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        /* Opcjonalnie: prosty styl ukrywający sekcje */
+        .page {
+            display: none;
+        }
+
+        .logo {
+            font-family: "Sedgwick Ave", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .active {
+            display: block;
+        }
+
+        body {
+            overflow-x: hidden;
+            /* Ukrycie przewijania na osi X */
+        }
+
+        nav,
+        .container {
+            max-width: 100%;
+            /* Ustawienie maksymalnej szerokości na 100% */
+            overflow-x: hidden;
+            /* Ukrycie przewijania na osi X */
+        }
+
+        #mobile-menu {
+            width: 100%;
+            /* Ustawienie szerokości na 100% */
+        }
+
+        #mobile-menu a {
+            width: 100%;
+            /* Ustawienie szerokości linków na 100% */
+            display: block;
+            /* Ustawienie wyświetlania jako blokowe */
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-50 to-indigo-50">
+    <!-- Nawigacja -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50 overflow-x-hidden">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <span class="logo text-2xl font-bold text-indigo-600"><a href="https://healyfit.pl/">HealyFit</a></span>
+            <!-- Menu desktop -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" data-page="home" class="nav-link text-gray-600 hover:text-indigo-600 transition">Home</a>
+                <a href="#oferta" data-page="oferta" class="nav-link text-gray-600 hover:text-indigo-600 transition">Oferta</a>
+                <a href="#omnie" data-page="omnie" class="nav-link text-gray-600 hover:text-indigo-600 transition">O mnie</a>
+                <a href="#przemiany" data-page="przemiany" class="nav-link text-gray-600 hover:text-indigo-600 transition">Przemiany</a>
+                <a href="#kontakt" data-page="kontakt" class="nav-link text-gray-600 hover:text-indigo-600 transition">Kontakt</a>
+                <a href="#blog" data-page="blog" class="nav-link text-gray-600 hover:text-indigo-600 transition">Blog</a>
+                <a href="#testimonials" data-page="testimonials" class="nav-link text-gray-600 hover:text-indigo-600 transition">Opinie</a>
+                <a href="#faq" data-page="faq" class="nav-link text-gray-600 hover:text-indigo-600 transition">FAQ</a>
+            </div>
+            <!-- Przycisk hamburger dla urządzeń mobilnych -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 hover:text-indigo-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobilne menu -->
+        <div id="mobile-menu" class="hidden md:hidden w-full">
+            <div class="px-6 pt-2 pb-4 space-y-1 bg-white w-full">
+                <a href="#home" data-page="home" class="block nav-link text-gray-600 hover:text-indigo-600 transition">Home</a>
+                <a href="#oferta" data-page="oferta" class="block nav-link text-gray-600 hover:text-indigo-600 transition">Oferta</a>
+                <a href="#omnie" data-page="omnie" class="block nav-link text-gray-600 hover:text-indigo-600 transition">O mnie</a>
+                <a href="#przemiany" data-page="przemiany" class="block nav-link text-gray-600 hover:text-indigo-600 transition">Przemiany</a>
+                <a href="#kontakt" data-page="kontakt" class="block nav-link text-gray-600 hover:text-indigo-600 transition">Kontakt</a>
+                <a href="#blog" data-page="blog" class="block nav-link text-gray-600 hover:text-indigo-600 transition">Blog</a>
+                <a href="#testimonials" data-page="testimonials" class="block nav-link text-gray-600 hover:text-indigo-600 transition">Opinie</a>
+                <a href="#faq" data-page="faq" class="block nav-link text-gray-600 hover:text-indigo-600 transition">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+
+            mobileMenuButton.addEventListener('click', () => {
+                console.log('Kliknięto przycisk menu'); // Debug: sprawdź czy event się wykonuje
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Dodaj event listener do każdego linku w menu mobilnym
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+
+    <!-- Główna treść (wszystkie sekcje) -->
+    <main class="pt-32">
+        <!-- Sekcja Home -->
+        <section id="home" class="page active min-h-screen pb-20 px-6" data-aos="fade-in">
+            <div class="container mx-auto flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+                        Zmień swoje życie
+                        <span class="text-indigo-600 block">Przez jedzenie i ruch</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">Profesjonalne wsparcie dietetyczne i treningowe dostosowane do Twoich potrzeb</p>
+                    <div class="flex space-x-4">
+                        <button class="bg-indigo-600 text-white px-8 py-4 rounded-full hover:bg-indigo-700 transition">Poznaj ofertę</button>
+                        <button class="border-2 border-indigo-600 text-indigo-600 px-8 py-4 rounded-full hover:bg-indigo-50 transition">Umów konsultację</button>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800" alt="Zdrowy styl życia" class="rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja Oferta -->
+        <section id="oferta" class="page min-h-screen py-20 bg-white" data-aos="fade-in">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Co dla Ciebie przygotowałam?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Karta 1 -->
+                    <div class="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition" data-aos="zoom-in">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-xl mb-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Personal Training</h3>
+                        <p class="text-gray-600 mb-6">Indywidualne plany treningowe dostosowane do Twoich celów i możliwości</p>
+                        <ul class="space-y-2 text-indigo-600">
+                            <li>✓ Treningi 1:1</li>
+                            <li>✓ Planowanie cykli</li>
+                            <li>✓ Monitorowanie postępów</li>
+                        </ul>
+                    </div>
+                    <!-- Karta 2 -->
+                    <div class="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-xl mb-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Dietetyka</h3>
+                        <p class="text-gray-600 mb-6">Spersonalizowane plany żywieniowe uwzględniające Twoje preferencje</p>
+                        <ul class="space-y-2 text-indigo-600">
+                            <li>✓ Analiza składu ciała</li>
+                            <li>✓ Regularne konsultacje</li>
+                            <li>✓ Listy zakupów</li>
+                        </ul>
+                    </div>
+                    <!-- Karta 3 -->
+                    <div class="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-xl mb-6 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Online Coaching</h3>
+                        <p class="text-gray-600 mb-6">Kompleksowe wsparcie bez wychodzenia z domu</p>
+                        <ul class="space-y-2 text-indigo-600">
+                            <li>✓ Cotygodniowe spotkania</li>
+                            <li>✓ Dostęp 24/7</li>
+                            <li>✓ Wsparcie motywacyjne</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <h3 class="text-2xl font-bold mb-8">Zacznij swoją przemianę już dziś!</h3>
+                    <button class="bg-indigo-600 text-white px-8 py-4 rounded-full hover:bg-indigo-700 transition">Umów pierwszą konsultację</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja O mnie -->
+        <section id="omnie" class="page min-h-screen py-20" data-aos="fade-in">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&w=800" alt="Trenerka" class="rounded-2xl shadow-2xl">
+                    </div>
+                    <div class="md:w-1/2 md:pl-16" data-aos="fade-up" data-aos-delay="200">
+                        <h2 class="text-4xl font-bold mb-8">Cześć, jestem Gosia!</h2>
+                        <p class="text-lg text-gray-600 mb-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                                    <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                                </div>
+                                <span>Certyfikowany trener personalny</span>
+                            </div>
+                            <!-- Możesz dodać więcej punktów -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja Przemiany -->
+        <section id="przemiany" class="page min-h-screen py-20 bg-white" data-aos="fade-in">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Przemiany</h2>
+                <p class="text-center text-gray-600 mb-8">Tutaj możesz umieścić galerię przemian swoich klientów.</p>
+                <!-- Galeria lub inna treść -->
+            </div>
+        </section>
+
+        <!-- Sekcja Kontakt -->
+        <section id="kontakt" class="page min-h-screen py-20" data-aos="fade-in">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Kontakt</h2>
+                <p class="text-center text-gray-600 mb-8">Masz pytania? Skontaktuj się ze mną!</p>
+                <!-- Formularz kontaktowy -->
+                <form class="max-w-lg mx-auto p-8 bg-white rounded-xl shadow-lg">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-bold mb-2">Imię</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700 font-bold mb-2">Wiadomość</label>
+                        <textarea id="message" name="message" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Wyślij</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Sekcja Blog -->
+        <section id="blog" class="page min-h-screen pb-20 px-6" data-aos="fade-in">
+            <div class="container mx-auto flex flex-col md:flex-row items-center">
+                <!-- Lista wpisów blogowych -->
+                <div class="w-full">
+                    <h2 class="text-4xl font-bold text-center mb-16">Blog</h2>
+                    <div class="space-y-12">
+                        <!-- Wpis blogowy 1 -->
+                        <article class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition">
+                            <h3 class="text-2xl font-bold mb-4">Jak zbilansować dietę?</h3>
+                            <p class="text-gray-600 mb-4">Zbilansowana dieta jest kluczem do zdrowego stylu życia. Dowiedz się, jak prawidłowo komponować posiłki, aby dostarczać organizmowi wszystkich niezbędnych składników odżywczych.</p>
+                            <a href="#" class="text-indigo-600 hover:underline">Czytaj więcej</a>
+                        </article>
+                        <!-- Wpis blogowy 2 -->
+                        <article class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition">
+                            <h3 class="text-2xl font-bold mb-4">Trening siłowy dla początkujących</h3>
+                            <p class="text-gray-600 mb-4">Trening siłowy może być doskonałym sposobem na poprawę kondycji fizycznej i zdrowia. Sprawdź nasze porady dla początkujących, aby zacząć bezpiecznie i efektywnie.</p>
+                            <a href="#" class="text-indigo-600 hover:underline">Czytaj więcej</a>
+                        </article>
+                        <!-- Wpis blogowy 3 -->
+                        <article class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition">
+                            <h3 class="text-2xl font-bold mb-4">Motywacja do ćwiczeń</h3>
+                            <p class="text-gray-600 mb-4">Motywacja jest kluczowym elementem w utrzymaniu regularności treningów. Odkryj sprawdzone sposoby na utrzymanie motywacji do ćwiczeń i osiąganie swoich celów fitness.</p>
+                            <a href="#" class="text-indigo-600 hover:underline">Czytaj więcej</a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja Opinie -->
+        <section id="testimonials" class="page min-h-screen py-20 bg-white" data-aos="fade-in">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Opinie Klientów</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Opinia 1 -->
+                    <div class="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
+                        <div class="flex items-center mb-4">
+                            <img src="https://via.placeholder.com/80" alt="Klient 1" class="w-20 h-20 rounded-full shadow-md">
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold">Anna Kowalska</h3>
+                                <p class="text-sm text-gray-600">Klientka</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">Gosia pomogła mi zmienić moje nawyki żywieniowe i osiągnąć moje cele fitness. Jestem bardzo zadowolona z efektów!</p>
+                    </div>
+                    <!-- Opinia 2 -->
+                    <div class="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
+                        <div class="flex items-center mb-4">
+                            <img src="https://via.placeholder.com/80" alt="Klient 2" class="w-20 h-20 rounded-full shadow-md">
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold">Jan Nowak</h3>
+                                <p class="text-sm text-gray-600">Klient</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">Dzięki wsparciu Gosi udało mi się zrzucić zbędne kilogramy i poprawić moją kondycję. Polecam każdemu!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja FAQ -->
+        <section id="faq" class="page min-h-screen py-20" data-aos="fade-in">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Najczęściej Zadawane Pytania</h2>
+                <div class="space-y-8">
+                    <!-- Pytanie 1 -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Jak mogę umówić się na konsultację?</h3>
+                        <p class="text-gray-600">Aby umówić się na konsultację, wystarczy skontaktować się ze mną za pośrednictwem formularza kontaktowego na stronie lub bezpośrednio przez e-mail.</p>
+                    </div>
+                    <!-- Pytanie 2 -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Czy oferujesz plany żywieniowe?</h3>
+                        <p class="text-gray-600">Tak, oferuję spersonalizowane plany żywieniowe dopasowane do Twoich potrzeb i celów.</                    </div>
+                    <!-- Pytanie 3 -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Jakie są koszty Twoich usług?</h3>
+                        <p class="text-gray-600">Koszty moich usług zależą od rodzaju wsparcia i długości współpracy. Skontaktuj się ze mną, aby uzyskać szczegółowe informacje.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Stopka -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="https://www.facebook.com/kucia12341" class="transform transition-transform duration-300 hover:scale-125">
+                        <img src="facebook.png" alt="Facebook" class="w-8 h-8">
+                    </a>
+                    <a href="https://www.instagram.com/kuczi_2002/" class="transform transition-transform duration-300 hover:scale-125">
+                        <img src="instagram.png" alt="Instagram" class="w-8 h-8">
+                    </a>
+                    <a href="https://www.linkedin.com" class="transform transition-transform duration-300 hover:scale-125">
+                        <img src="linkedin.png" alt="LinkedIn" class="w-8 h-8">
+                    </a>
+                    <a href="https://women.volleybox.net/pl/malgorzata-kuczynska-p63428" class="transform transition-transform duration-300 hover:scale-125">
+                        <img src="volleyball.png" alt="volleyball" class="w-8 h-8">
+                    </a>
+                </div>
+                <div class="mt-12 pt-8 border-t border-gray-700">
+                    <p class="text-gray-400">HealyFit.pl website made with ❤️ by <a href="https://www.instagram.com/grucjan031/">Gracjan Połomski</a> </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Skrypt do obsługi dynamicznego przeładowywania treści -->
+    <script>
+        window.addEventListener('beforeunload', function() {
+            window.scrollTo(0, 0);
+        });
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            const pages = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('.nav-link');
+    
+            function showPage(pageId) {
+                // Ukryj wszystkie sekcje
+                pages.forEach(page => page.classList.remove('active'));
+                // Pokaż wybraną sekcję
+                const target = document.getElementById(pageId);
+                if (target) {
+                    target.classList.add('active');
+                    // Inicjalizacja AOS przy każdej zmianie widoczności
+                    AOS.refresh();
+                }
+                // Przewiń do góry
+                window.scrollTo(0, 0);
+            }
+    
+            // Nasłuchiwanie kliknięć na linkach nawigacyjnych
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                    // Zmiana hash w URL
+                    history.pushState(null, '', '#' + pageId);
+                });
+            });
+    
+            // Obsługa back/forward w przeglądarce
+            window.addEventListener('popstate', function () {
+                const hash = location.hash.replace('#', '') || 'home';
+                showPage(hash);
+            });
+    
+            // Inicjalizacja na podstawie hash lub domyślnie strona główna
+            const initialPage = location.hash.replace('#', '') || 'home';
+            showPage(initialPage);
+    
+            // Inicjalizacja AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+            });
+        });
+    </script>
+</body>
+
+</html>
