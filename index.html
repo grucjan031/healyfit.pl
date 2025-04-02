@@ -233,21 +233,47 @@
                 <h2 class="text-4xl font-bold text-center mb-16">Kontakt</h2>
                 <p class="text-center text-gray-600 mb-8">Masz pytania? Skontaktuj się ze mną!</p>
                 <!-- Formularz kontaktowy -->
-                <form class="max-w-lg mx-auto p-8 bg-white rounded-xl shadow-lg">
+                <form class="max-w-lg mx-auto p-8 bg-white rounded-xl shadow-lg" id="contactForm">
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 font-bold mb-2">Imię</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500">
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" required>
                     </div>
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500">
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" required>
                     </div>
                     <div class="mb-4">
                         <label for="message" class="block text-gray-700 font-bold mb-2">Wiadomość</label>
-                        <textarea id="message" name="message" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" rows="5"></textarea>
+                        <textarea id="message" name="message" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Wyślij</button>
                 </form>
+                
+                <script>
+                    document.getElementById("contactForm").addEventListener("submit", async function(event) {
+                        event.preventDefault();
+                
+                        const response = await fetch("http://localhost:5000/send", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                name: document.getElementById("name").value,
+                                email: document.getElementById("email").value,
+                                message: document.getElementById("message").value
+                            })
+                        });
+                
+                        const result = await response.json();
+                        if (result.success) {
+                            alert("Wiadomość została wysłana!");
+                        } else {
+                            alert("Wystąpił problem. Spróbuj ponownie.");
+                        }
+                    });
+                </script>
+                
             </div>
         </section>
 
