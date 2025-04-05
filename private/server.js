@@ -41,10 +41,6 @@ app.post("/send", async (req, res) => {
 });
 
 // Start serwera
-<<<<<<< HEAD
 app.listen(PORT, '0.0.0.0' ,() => {
-=======
-app.listen(PORT, () => {
->>>>>>> fbc32897b846a94d5d66f8026e12919c74d49de2
     console.log(`Serwer działa na http://localhost:${PORT}`);
 });
