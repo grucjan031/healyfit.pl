@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
     <style>
         /* Opcjonalnie: prosty styl ukrywający sekcje */
@@ -106,30 +107,43 @@
             });
         });
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="bg-gradient-to-br from-gray-50 to-indigo-50">
     <!-- Nawigacja -->
     <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50 overflow-x-hidden">
         <div class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <span class="logo text-2xl font-bold text-indigo-600"><a href="https://healyfit.pl/">HealyFit</a></span>
+            <span class="logo text-2xl font-bold text-indigo-600" style="font-family: 'Sedgwick Ave', cursive;">
+                <a href="https://healyfit.pl/">HealyFit</a>
+            </span>
             <!-- Menu desktop -->
             <div class="hidden md:flex space-x-8">
-                <a href="#home" data-page="home"
-                    class="nav-link text-gray-600 hover:text-indigo-600 transition">Home</a>
-                <a href="#oferta" data-page="oferta"
-                    class="nav-link text-gray-600 hover:text-indigo-600 transition">Oferta</a>
-                <a href="#omnie" data-page="omnie" class="nav-link text-gray-600 hover:text-indigo-600 transition">O
-                    mnie</a>
-                <a href="#przemiany" data-page="przemiany"
-                    class="nav-link text-gray-600 hover:text-indigo-600 transition">Przemiany</a>
-                <a href="#kontakt" data-page="kontakt"
-                    class="nav-link text-gray-600 hover:text-indigo-600 transition">Kontakt</a>
-                <a href="#blog" data-page="blog"
-                    class="nav-link text-gray-600 hover:text-indigo-600 transition">Blog</a>
-                <a href="#testimonials" data-page="testimonials"
-                    class="nav-link text-gray-600 hover:text-indigo-600 transition">Opinie</a>
-                <a href="#faq" data-page="faq" class="nav-link text-gray-600 hover:text-indigo-600 transition">FAQ</a>
+                <a href="#home" data-page="home" class="nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Home
+                </a>
+                <a href="#oferta" data-page="oferta" class="nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Oferta
+                </a>
+                <a href="#omnie" data-page="omnie" class="nav-link text-gray-600 hover:text-indigo-600 transition">
+                    O mnie
+                </a>
+                <a href="#przemiany" data-page="przemiany" class="nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Przemiany
+                </a>
+                <a href="#kontakt" data-page="kontakt" class="nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Kontakt
+                </a>
+                <a href="#blog" data-page="blog" class="nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Blog
+                </a>
+                <a href="#testimonials" data-page="testimonials" class="nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Opinie
+                </a>
+                <a href="#faq" data-page="faq" class="nav-link text-gray-600 hover:text-indigo-600 transition">
+                    FAQ
+                </a>
             </div>
             <!-- Przycisk hamburger dla urządzeń mobilnych -->
             <div class="md:hidden">
@@ -144,44 +158,73 @@
         <!-- Mobilne menu -->
         <div id="mobile-menu" class="hidden md:hidden w-full">
             <div class="px-6 pt-2 pb-4 space-y-1 bg-white w-full">
-                <a href="#home" data-page="home"
-                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">Home</a>
-                <a href="#oferta" data-page="oferta"
-                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">Oferta</a>
-                <a href="#omnie" data-page="omnie"
-                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">O mnie</a>
-                <a href="#przemiany" data-page="przemiany"
-                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">Przemiany</a>
-                <a href="#kontakt" data-page="kontakt"
-                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">Kontakt</a>
-                <a href="#blog" data-page="blog"
-                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">Blog</a>
-                <a href="#testimonials" data-page="testimonials"
-                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">Opinie</a>
-                <a href="#faq" data-page="faq"
-                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">FAQ</a>
+                <a href="#home" data-page="home" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Home
+                </a>
+                <a href="#oferta" data-page="oferta" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Oferta
+                </a>
+                <a href="#omnie" data-page="omnie" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                    O mnie
+                </a>
+                <a href="#przemiany" data-page="przemiany" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Przemiany
+                </a>
+                <a href="#kontakt" data-page="kontakt" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Kontakt
+                </a>
+                <a href="#blog" data-page="blog" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Blog
+                </a>
+                <a href="#testimonials" data-page="testimonials" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                    Opinie
+                </a>
+                <a href="#faq" data-page="faq" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                    FAQ
+                </a>
             </div>
         </div>
     </nav>
-
+    
+    <style>
+        /* Aktywny link – zmiana koloru do odcienia loga (indigo) */
+        .nav-link.active {
+            color: #4F46E5 !important;
+        }
+        /* Ustawienie bardziej wyrazistej czcionki dla opcji nav */
+        .nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+    </style>
+    
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-
-            mobileMenuButton.addEventListener('click', () => {
-                console.log('Kliknięto przycisk menu'); // Debug: sprawdź czy event się wykonuje
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // Dodaj event listener do każdego linku w menu mobilnym
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+          const navLinks = document.querySelectorAll('.nav-link');
+    
+          // Zdarzenie kliknięcia: usuń klasę 'active' z wszystkich, a dodaj do klikniętego linku
+          navLinks.forEach(link => {
+              link.addEventListener('click', function () {
+                  navLinks.forEach(l => l.classList.remove('active'));
+                  this.classList.add('active');
+              });
+          });
+    
+          // Ustaw aktywny link na podstawie hash w URL lub domyślnie 'home'
+          const currentHash = window.location.hash || "#home";
+          navLinks.forEach(link => {
+              if (link.getAttribute('href') === currentHash) {
+                  link.classList.add('active');
+              }
+          });
+    
+          // Obsługa menu mobilnego
+          const mobileMenuButton = document.getElementById('mobile-menu-button');
+          const mobileMenu = document.getElementById('mobile-menu');
+          mobileMenuButton.addEventListener('click', () => {
+              mobileMenu.classList.toggle('hidden');
+          });
+      });
     </script>
 
     <!-- Główna treść (wszystkie sekcje) -->
@@ -280,44 +323,188 @@
             </div>
         </section>
 
-        <!-- Sekcja O mnie -->
-        <section id="omnie" class="page min-h-screen py-20" data-aos="fade-in">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-up">
-                        <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&w=800"
-                            alt="Trenerka" class="rounded-2xl shadow-2xl">
-                    </div>
-                    <div class="md:w-1/2 md:pl-16" data-aos="fade-up" data-aos-delay="200">
-                        <h2 class="text-4xl font-bold mb-8">Cześć, jestem Gosia!</h2>
-                        <p class="text-lg text-gray-600 mb-6">Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-                            1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book. It has survived not only five centuries, but also the leap into electronic
-                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                            publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                                    <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
-                                </div>
-                                <span>Certyfikowany trener personalny</span>
-                            </div>
-                            <!-- Możesz dodać więcej punktów -->
+       <!-- Sekcja O mnie -->
+<section id="omnie" class="page min-h-screen py-20" data-aos="fade-in">
+    <div class="container mx-auto px-6 overflow-hidden">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&w=800"
+                    alt="Trenerka" class="rounded-2xl shadow-2xl">
+            </div>
+            <div class="md:w-1/2 md:pl-16" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-4xl font-bold mb-8">Cześć, jestem Gosia!</h2>
+                <p class="text-lg text-gray-600 mb-6">Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                    1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book. It has survived not only five centuries, but also the leap into electronic
+                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <div class="space-y-3">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                            <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
                         </div>
+                        <span>Certyfikowany trener personalny</span>
                     </div>
+                    <!-- Możesz dodać więcej punktów -->
                 </div>
             </div>
-        </section>
-
+        </div>
+    </div>
+</section>
         <!-- Sekcja Przemiany -->
         <section id="przemiany" class="page min-h-screen py-20" data-aos="fade-in">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center mb-16">Przemiany</h2>
-                <p class="text-center text-gray-600 mb-8">Tutaj możesz umieścić galerię przemian swoich klientów.</p>
-                <!-- Galeria lub inna treść -->
+                <p class="text-center text-gray-600 mb-12">Zobacz efekty pracy moich klientów i przekonaj się, że zmiana
+                    jest możliwa!</p>
+
+                <!-- Galeria przemian - uproszczona -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Karta przemiany 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up">
+                        <div class="relative">
+                            <div class="transformation-container">
+                                <img src="before2.png" alt="Przed" class="transformation-image before-image">
+                                <img src="after2.png" alt="Po" class="transformation-image after-image">
+                                <div class="transformation-label before-label">Przed</div>
+                                <div class="transformation-label after-label">Po</div>
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Anna, 32 lata</h3>
+                            <p class="text-gray-600 text-sm mb-2">4 miesiące | Redukcja wagi</p>
+
+                            <!-- Opis przebiegu współpracy -->
+                            <div class="border-t pt-3 mt-1">
+                                <p class="text-gray-700 font-medium mb-3">Przebieg współpracy:</p>
+                                <ul class="text-gray-600 space-y-2 pl-1">
+                                    <li>• Elastyczny plan dietetyczny</li>
+                                    <li>• Trening 3× w tygodniu</li>
+                                    <li>• Suplementacja wspierająca metabolizm</li>
+                                    <li>• Cotygodniowe konsultacje online</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Karta przemiany 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative">
+                            <div class="transformation-container">
+                                <img src="before1.png" alt="Przed" class="transformation-image before-image">
+                                <img src="after1.png" alt="Po" class="transformation-image after-image">
+                                <div class="transformation-label before-label">Przed</div>
+                                <div class="transformation-label after-label">Po</div>
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Michał, 28 lat</h3>
+                            <p class="text-gray-600 text-sm mb-2">6 miesięcy | Redukcja masy</p>
+
+                            <!-- Opis przebiegu współpracy -->
+                            <div class="border-t pt-3 mt-1">
+                                <p class="text-gray-700 font-medium mb-3">Przebieg współpracy:</p>
+                                <ul class="text-gray-600 space-y-2 pl-1">
+                                    <li>• Plan dietetyczny 2600 kcal</li>
+                                    <li>• Treningi siłowe 4× w tygodniu</li>
+                                    <li>• Kardio 2× w tygodniu</li>
+                                    <li>• Monitorowanie postępów co 2 tygodnie</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Karta przemiany 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative">
+                            <div class="transformation-container">
+                                <img src="before3.png" alt="Przed" class="transformation-image before-image">
+                                <img src="after3.png" alt="Po" class="transformation-image after-image">
+                                <div class="transformation-label before-label">Przed</div>
+                                <div class="transformation-label after-label">Po</div>
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Monika, 45 lat</h3>
+                            <p class="text-gray-600 text-sm mb-2">3 miesiące | Zdrowie</p>
+
+                            <!-- Opis przebiegu współpracy -->
+                            <div class="border-t pt-3 mt-1">
+                                <p class="text-gray-700 font-medium mb-3">Przebieg współpracy:</p>
+                                <ul class="text-gray-600 space-y-2 pl-1">
+                                    <li>• Dieta przeciwzapalna</li>
+                                    <li>• Lekkie treningi 3× w tygodniu</li>
+                                    <li>• Regulacja snu i nawyków</li>
+                                    <li>• Obniżenie poziomu stresu</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wezwanie do działania - poprawione do stylu z sekcji oferta -->
+                <div class="text-center mt-16" style="margin-top: 70px;">
+                    <h3 class="text-2xl font-bold mb-8">Zacznij swoją przemianę już dziś!</h3>
+                    <a href="#kontakt" data-page="kontakt">
+                        <button class="bg-indigo-600 text-white px-8 py-4 rounded-full hover:bg-indigo-700 transition">
+                            Umów pierwszą konsultację
+                        </button>
+                    </a>
+                </div>
             </div>
+
+            <!-- Style do automatycznego dostosowywania zdjęć -->
+            <style>
+                .transformation-container {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    height: 400px;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                .transformation-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+                .transformation-label {
+                    position: absolute;
+                    bottom: 0;
+                    width: 50%;
+                    background: rgba(0, 0, 0, 0.6);
+                    color: white;
+                    text-align: center;
+                    padding: 4px 0;
+                    font-size: 0.875rem;
+                }
+
+                .before-label {
+                    left: 0;
+                }
+
+                .after-label {
+                    right: 0;
+                }
+
+                /* Zapobieganie niezamierzonemu scrollowaniu wewnątrz kart */
+                #przemiany .bg-white {
+                    overflow: hidden;
+                }
+
+                /* Ujednolicenie zachowania listy punktów */
+                #przemiany ul {
+                    list-style-type: none;
+                }
+            </style>
         </section>
 
         <!-- Sekcja Kontakt -->
@@ -346,6 +533,10 @@
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500"
                             rows="5" required></textarea>
                     </div>
+                    <!-- Element Cloudflare Turnstile -->
+                    <div class="mb-4 flex justify-center">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAABD-GGpupvNKK1Nz"></div>
+                    </div>
                     <button type="submit"
                         class="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Wyślij</button>
                 </form>
@@ -353,6 +544,15 @@
                 <script>
                     document.getElementById("contactForm").addEventListener("submit", async function (event) {
                         event.preventDefault();
+
+                        // Pobierz token Turnstile
+                        const turnstileToken = document.querySelector('[name="cf-turnstile-response"]').value;
+
+                        // Sprawdź, czy token istnieje
+                        if (!turnstileToken) {
+                            alert("Proszę potwierdzić, że nie jesteś robotem.");
+                            return;
+                        }
 
                         const response = await fetch("https://healyfit.pl/send", {
                             method: "POST",
@@ -362,13 +562,17 @@
                             body: JSON.stringify({
                                 name: document.getElementById("name").value,
                                 email: document.getElementById("email").value,
-                                message: document.getElementById("message").value
+                                message: document.getElementById("message").value,
+                                turnstileToken: turnstileToken
                             })
                         });
 
                         const result = await response.json();
                         if (result.success) {
                             alert("Wiadomość została wysłana!");
+                            document.getElementById("contactForm").reset();
+                            // Reset captcha
+                            turnstile.reset();
                         } else {
                             alert("Wystąpił problem. Spróbuj ponownie.");
                         }
@@ -448,8 +652,7 @@
                     <!-- Opinia 1 -->
                     <div class="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
                         <div class="flex items-center mb-4">
-                            <img src="client1.jpg" alt="Klient 1"
-                                class="w-20 h-20 rounded-full shadow-md">
+                            <img src="client1.jpg" alt="Klient 1" class="w-20 h-20 rounded-full shadow-md">
                             <div class="ml-4">
                                 <h3 class="text-xl font-bold">Anna Kowalska</h3>
                                 <p class="text-sm text-gray-600">Klientka</p>
@@ -461,8 +664,7 @@
                     <!-- Opinia 2 -->
                     <div class="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
                         <div class="flex items-center mb-4">
-                            <img src="client2.jpg" alt="Klient 2"
-                                class="w-20 h-20 rounded-full shadow-md">
+                            <img src="client2.jpg" alt="Klient 2" class="w-20 h-20 rounded-full shadow-md">
                             <div class="ml-4">
                                 <h3 class="text-xl font-bold">Jan Nowak</h3>
                                 <p class="text-sm text-gray-600">Klient</p>
