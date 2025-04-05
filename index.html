@@ -129,7 +129,8 @@
                 <a href="#omnie" data-page="omnie" class="nav-link text-gray-600 hover:text-indigo-600 transition">
                     O mnie
                 </a>
-                <a href="#przemiany" data-page="przemiany" class="nav-link text-gray-600 hover:text-indigo-600 transition">
+                <a href="#przemiany" data-page="przemiany"
+                    class="nav-link text-gray-600 hover:text-indigo-600 transition">
                     Przemiany
                 </a>
                 <a href="#kontakt" data-page="kontakt" class="nav-link text-gray-600 hover:text-indigo-600 transition">
@@ -138,7 +139,8 @@
                 <a href="#blog" data-page="blog" class="nav-link text-gray-600 hover:text-indigo-600 transition">
                     Blog
                 </a>
-                <a href="#testimonials" data-page="testimonials" class="nav-link text-gray-600 hover:text-indigo-600 transition">
+                <a href="#testimonials" data-page="testimonials"
+                    class="nav-link text-gray-600 hover:text-indigo-600 transition">
                     Opinie
                 </a>
                 <a href="#faq" data-page="faq" class="nav-link text-gray-600 hover:text-indigo-600 transition">
@@ -161,22 +163,27 @@
                 <a href="#home" data-page="home" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
                     Home
                 </a>
-                <a href="#oferta" data-page="oferta" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                <a href="#oferta" data-page="oferta"
+                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">
                     Oferta
                 </a>
-                <a href="#omnie" data-page="omnie" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                <a href="#omnie" data-page="omnie"
+                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">
                     O mnie
                 </a>
-                <a href="#przemiany" data-page="przemiany" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                <a href="#przemiany" data-page="przemiany"
+                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">
                     Przemiany
                 </a>
-                <a href="#kontakt" data-page="kontakt" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                <a href="#kontakt" data-page="kontakt"
+                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">
                     Kontakt
                 </a>
                 <a href="#blog" data-page="blog" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
                     Blog
                 </a>
-                <a href="#testimonials" data-page="testimonials" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
+                <a href="#testimonials" data-page="testimonials"
+                    class="block nav-link text-gray-600 hover:text-indigo-600 transition">
                     Opinie
                 </a>
                 <a href="#faq" data-page="faq" class="block nav-link text-gray-600 hover:text-indigo-600 transition">
@@ -185,46 +192,53 @@
             </div>
         </div>
     </nav>
-    
+
     <style>
         /* Aktywny link – zmiana koloru do odcienia loga (indigo) */
         .nav-link.active {
             color: #4F46E5 !important;
         }
+
         /* Ustawienie bardziej wyrazistej czcionki dla opcji nav */
         .nav-link {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
         }
     </style>
-    
+
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          const navLinks = document.querySelectorAll('.nav-link');
-    
-          // Zdarzenie kliknięcia: usuń klasę 'active' z wszystkich, a dodaj do klikniętego linku
-          navLinks.forEach(link => {
-              link.addEventListener('click', function () {
-                  navLinks.forEach(l => l.classList.remove('active'));
-                  this.classList.add('active');
-              });
-          });
-    
-          // Ustaw aktywny link na podstawie hash w URL lub domyślnie 'home'
-          const currentHash = window.location.hash || "#home";
-          navLinks.forEach(link => {
-              if (link.getAttribute('href') === currentHash) {
-                  link.classList.add('active');
-              }
-          });
-    
-          // Obsługa menu mobilnego
-          const mobileMenuButton = document.getElementById('mobile-menu-button');
-          const mobileMenu = document.getElementById('mobile-menu');
-          mobileMenuButton.addEventListener('click', () => {
-              mobileMenu.classList.toggle('hidden');
-          });
-      });
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Obsługa przycisku hamburger
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Po kliknięciu w dowolny link menu mobilnego, zamknij menu
+            mobileMenu.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Pozostała część skryptu np. dla aktywnego linku itd.
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            const currentHash = window.location.hash || "#home";
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentHash) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 
     <!-- Główna treść (wszystkie sekcje) -->
@@ -323,36 +337,36 @@
             </div>
         </section>
 
-       <!-- Sekcja O mnie -->
-<section id="omnie" class="page min-h-screen py-20" data-aos="fade-in">
-    <div class="container mx-auto px-6 overflow-hidden">
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&w=800"
-                    alt="Trenerka" class="rounded-2xl shadow-2xl">
-            </div>
-            <div class="md:w-1/2 md:pl-16" data-aos="fade-up" data-aos-delay="200">
-                <h2 class="text-4xl font-bold mb-8">Cześć, jestem Gosia!</h2>
-                <p class="text-lg text-gray-600 mb-6">Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-                    1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                    specimen book. It has survived not only five centuries, but also the leap into electronic
-                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <div class="space-y-3">
-                    <div class="flex items-center">
-                        <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                            <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
-                        </div>
-                        <span>Certyfikowany trener personalny</span>
+        <!-- Sekcja O mnie -->
+        <section id="omnie" class="page min-h-screen py-20" data-aos="fade-in">
+            <div class="container mx-auto px-6 overflow-hidden">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&w=800"
+                            alt="Trenerka" class="rounded-2xl shadow-2xl">
                     </div>
-                    <!-- Możesz dodać więcej punktów -->
+                    <div class="md:w-1/2 md:pl-16" data-aos="fade-up" data-aos-delay="200">
+                        <h2 class="text-4xl font-bold mb-8">Cześć, jestem Gosia!</h2>
+                        <p class="text-lg text-gray-600 mb-6">Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                            1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                            specimen book. It has survived not only five centuries, but also the leap into electronic
+                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                            release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                            publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                                    <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                                </div>
+                                <span>Certyfikowany trener personalny</span>
+                            </div>
+                            <!-- Możesz dodać więcej punktów -->
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
         <!-- Sekcja Przemiany -->
         <section id="przemiany" class="page min-h-screen py-20" data-aos="fade-in">
             <div class="container mx-auto px-6">
